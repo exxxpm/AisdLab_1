@@ -260,3 +260,18 @@ bool Image<float>::operator==(Image a){
 	}
 	return true;
 }
+
+template <typename T>
+float Image<T>::image_koefficient() const {
+	float sum = 0.0f;
+	float maxVal = numeric_limits<T>::max();
+
+
+	for (int i = 0; i < size_x; i++){
+		for (int j = 0; j < size_y; j++){
+			sum += static_cast<T>((image[i][j]) / maxVal);
+		}
+	}
+	float fillKoef = sum / (size_x * size_y);
+	return abs(fillKoef);
+}

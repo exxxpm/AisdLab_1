@@ -43,4 +43,19 @@ int main(){
     cin >> x2;
     cout << "y: ";
     cin >> y2;
+
+    for (int i = 0; i < size_x; i++) {
+        for (int j = 0; j < size_y; j++) {
+            if ((i >= x1 && j >= y1) && (i <= x2 && j <= y2)) {
+                if (choice == 1) {
+                    a(i, j) = rand() % 256;
+                }
+                else {
+                    a(i, j) = fillSymbol;
+                }
+            }
+        }
+    }
+
+    cout << a;
 }
